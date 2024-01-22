@@ -87,6 +87,7 @@
 # textb()
 # print(num)
 
+# #列表用中括号[]定义
 # name_list = ["Tom", "Lisy", "Rose"]
 # print(name_list[0])#下标索引，正向从0开始
 # print(name_list[1])
@@ -171,3 +172,34 @@
 # #len用于统计列表中总共有多少元素
 # #语法为    len(列表)
 # print(k)
+# def list_while_func():
+#     my_list = ["Tom", "Lisy", "Rose", "Boy"]
+#     q = 0
+#     while q < len(my_list):
+#         element = my_list[q]
+#         print(f"列表的元素是{element}")
+#         q += 1
+# list_while_func()
+
+# def list_for_func():
+#     my_list = ["Tom", "Lisy", "Rose", "Boy"]
+#     for dan in my_list:
+#         print(f"列表中的元素是：{dan}")
+# list_for_func()
+# 元组用小括号()定义
+yuan_1 = (1,2,3,4,5,6,7,8,9)
+yuan_2 = (1, )#元组只有一个元素后面要加逗号.
+yuan_3 = ((1,2),(3,4))
+print(f"{type(yuan_1)},{type(yuan_2)},{type(yuan_3)}")
+num = yuan_3[1][1]
+print(num)
+"""
+!!!
+元组只有index(),count(),len(元组)
+!!!
+"""
+
+#元组不可修改(如增加或删除元素),但有特殊情况,元组内有可修改的数据容器就可修改
+yuan_4 = (1,2,[3,4])
+yuan_4[2][1] = 5
+print(yuan_4)
