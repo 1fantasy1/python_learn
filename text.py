@@ -356,9 +356,53 @@ print(dict_2)
 print(f"学生的成绩是：{dict_3}")
 
 # 取对应key的Value值。
+# 看一下Tom的语文成绩
 num = dict_0["c"]
 print(num)
-
-# 看一下Tom的语文成绩
 language = dict_3["Tom"]["语文"]
 print(f"Tom的语文成绩是：{language}")
+
+# 字典新增，更新。
+# 语法： 字典[key] = Value
+# 结果： 字典被修改，新增了元素。如输入已有key，则更新元素。
+dict_0["f"] = "6"
+print(f"字典新增元素后为：{dict_0}")
+dict_0["f"] = "7"
+print(f"字典更新元素后为：{dict_0}")
+
+# 字典元素删除
+# 语法： 字典.pop(key)
+# 结果： 字典 = {}
+# 删除对应key的元素，并返回值。
+del_0 = dict_0.pop("f")
+print(f"删除元素{del_0}后的字典为：{dict_0}")
+
+# 清空字典元素
+# 语法： 字典.clear()
+dict_0.clear()
+print(f"清空字典元素后的字典为：{dict_0}")
+
+# 获取字典的全部key
+# 语法： 字典.keys()
+# 结果： 得到字典全部key
+key_1 = dict_3.keys()
+print(f"字典的全部key为：{key_1}")
+
+# 遍历字典
+# 字典没有下标，不能通过while循环遍历F！！！
+# 方式一：通过for循环遍历
+for key in dict_3.keys():
+    print(f"字典key是{key}。")
+    print(f"key:{key}对应的Value是{dict_3[key]}。")
+
+# 方式二：直接对字典进行for循环，每一次循环都直接得到key。
+for key in dict_3:
+    print(f"2字典key是{key}。")
+    print(f"key:{key}对应的Value是{dict_3[key]}。")
+
+# 统计字典的元素数量
+# 方法： len(字典)
+# 输出数量
+sum_1 = len(dict_3)
+print(f"字典{dict_3}中元素的个数为：{sum_1}")
+
