@@ -330,79 +330,142 @@
 # 字典的格式为{"key":Value,"key":Value,"key":Value}
 # 字典的key不能重复，且不能为字典。
 # Value 可为任意数据类型，表明字典可以嵌套。
-dict_0 = {'a':1, 'b':2, 'c':3, 'd':4, 'e':5}
-dict_1 = {}
-dict_2 = dict()
-dict_3 = {
-    "Tom":{
-        "语文":99,
-        "数学":88,
-        "英语":77
-    },
-    "Jerry":{
-        "语文":66,
-        "数学":55,
-        "英语":44
-    },
-    "Mike":{
-        "语文":33,
-        "数学":22,
-        "英语":11
-    }
-}
-print(dict_0)
-print(dict_1)
-print(dict_2)
-print(f"学生的成绩是：{dict_3}")
+# dict_0 = {'a':1, 'b':2, 'c':3, 'd':4, 'e':5}
+# dict_1 = {}
+# dict_2 = dict()
+# dict_3 = {
+#     "Tom":{
+#         "语文":99,
+#         "数学":88,
+#         "英语":77
+#     },
+#     "Jerry":{
+#         "语文":66,
+#         "数学":55,
+#         "英语":44
+#     },
+#     "Mike":{
+#         "语文":33,
+#         "数学":22,
+#         "英语":11
+#     }
+# }
+# print(dict_0)
+# print(dict_1)
+# print(dict_2)
+# print(f"学生的成绩是：{dict_3}")
+#
+# # 取对应key的Value值。
+# # 看一下Tom的语文成绩
+# num = dict_0["c"]
+# print(num)
+# language = dict_3["Tom"]["语文"]
+# print(f"Tom的语文成绩是：{language}")
+#
+# # 字典新增，更新。
+# # 语法： 字典[key] = Value
+# # 结果： 字典被修改，新增了元素。如输入已有key，则更新元素。
+# dict_0["f"] = "6"
+# print(f"字典新增元素后为：{dict_0}")
+# dict_0["f"] = "7"
+# print(f"字典更新元素后为：{dict_0}")
+#
+# # 字典元素删除
+# # 语法： 字典.pop(key)
+# # 结果： 字典 = {}
+# # 删除对应key的元素，并返回值。
+# del_0 = dict_0.pop("f")
+# print(f"删除元素{del_0}后的字典为：{dict_0}")
+#
+# # 清空字典元素
+# # 语法： 字典.clear()
+# dict_0.clear()
+# print(f"清空字典元素后的字典为：{dict_0}")
+#
+# # 获取字典的全部key
+# # 语法： 字典.keys()
+# # 结果： 得到字典全部key
+# key_1 = dict_3.keys()
+# print(f"字典的全部key为：{key_1}")
+#
+# # 遍历字典
+# # 字典没有下标，不能通过while循环遍历F！！！
+# # 方式一：通过for循环遍历
+# for key in dict_3.keys():
+#     print(f"字典key是{key}。")
+#     print(f"key:{key}对应的Value是{dict_3[key]}。")
+#
+# # 方式二：直接对字典进行for循环，每一次循环都直接得到key。
+# for key in dict_3:
+#     print(f"2字典key是{key}。")
+#     print(f"key:{key}对应的Value是{dict_3[key]}。")
+#
+# # 统计字典的元素数量
+# # 方法： len(字典)
+# # 输出数量
+# sum_1 = len(dict_3)
+# print(f"字典{dict_3}中元素的个数为：{sum_1}")
 
-# 取对应key的Value值。
-# 看一下Tom的语文成绩
-num = dict_0["c"]
-print(num)
-language = dict_3["Tom"]["语文"]
-print(f"Tom的语文成绩是：{language}")
+# 容器的通用操作
+# 如 len(), max(), min(),list(),tulpe(),str(),set()
 
-# 字典新增，更新。
-# 语法： 字典[key] = Value
-# 结果： 字典被修改，新增了元素。如输入已有key，则更新元素。
-dict_0["f"] = "6"
-print(f"字典新增元素后为：{dict_0}")
-dict_0["f"] = "7"
-print(f"字典更新元素后为：{dict_0}")
+my_list = [1,2,3,4,5]
+my_tuple = (1,2,3,4,5)
+my_str = "hello world"
+my_set = {1,2,3,4,5}
+my_dict = {"key1":1, "key2":2, "key3":3,"key4":4,"key5":5}
 
-# 字典元素删除
-# 语法： 字典.pop(key)
-# 结果： 字典 = {}
-# 删除对应key的元素，并返回值。
-del_0 = dict_0.pop("f")
-print(f"删除元素{del_0}后的字典为：{dict_0}")
+# len 元素个数
+print(f"列表 元素个数有：{len(my_list)}")
+print(f"元组 元素个数有：{len(my_tuple)}")
+print(f"字符串 元素个数有：{len(my_str)}")
+print(f"集合 元素个数有：{len(my_set)}")
+print(f"字典 元素个数有：{len(my_dict)}")
+print()
 
-# 清空字典元素
-# 语法： 字典.clear()
-dict_0.clear()
-print(f"清空字典元素后的字典为：{dict_0}")
+# max 最大元素
+print(f"列表 最大元素是：{max(my_list)}")
+print(f"元组 最大元素是：{max(my_tuple)}")
+print(f"字符串 最大元素是：{max(my_str)}")
+print(f"集合 最大元素是：{max(my_set)}")
+print(f"字典 最大元素是：{max(my_dict)}")
+print()
 
-# 获取字典的全部key
-# 语法： 字典.keys()
-# 结果： 得到字典全部key
-key_1 = dict_3.keys()
-print(f"字典的全部key为：{key_1}")
+# min 最小元素
+print(f"列表 最小元素是：{min(my_list)}")
+print(f"元组 最小元素是：{min(my_tuple)}")
+print(f"字符串 最小元素是：{min(my_str)}")
+print(f"集合 最小元素是：{min(my_set)}")
+print(f"字典 最小元素是：{min(my_dict)}")
+print()
 
-# 遍历字典
-# 字典没有下标，不能通过while循环遍历F！！！
-# 方式一：通过for循环遍历
-for key in dict_3.keys():
-    print(f"字典key是{key}。")
-    print(f"key:{key}对应的Value是{dict_3[key]}。")
+# list(容器) 转为列表
+print(f"列表转列表的结果是：{list(my_list)}")
+print(f"元组转列表的结果是：{list(my_tuple)}")
+print(f"字符串转列表的结果是：{list(my_str)}")
+print(f"集合转列表的结果是：{list(my_set)}")
+print(f"字典转列表的结果是：{list(my_dict)}")
+print()
 
-# 方式二：直接对字典进行for循环，每一次循环都直接得到key。
-for key in dict_3:
-    print(f"2字典key是{key}。")
-    print(f"key:{key}对应的Value是{dict_3[key]}。")
+# tulpe(容器) 转为元组
+print(f"列表转元组的结果是：{tuple(my_list)}")
+print(f"元组转元组的结果是：{tuple(my_tuple)}")
+print(f"字符串转元组的结果是：{tuple(my_str)}")
+print(f"集合转元组的结果是：{tuple(my_set)}")
+print(f"字典转元组的结果是：{tuple(my_dict)}")
+print()
 
-# 统计字典的元素数量
-# 方法： len(字典)
-# 输出数量
-sum_1 = len(dict_3)
-print(f"字典{dict_3}中元素的个数为：{sum_1}")
+# str(容器) 转为字符串
+print(f"列表转字符串的结果是：{str(my_list)}")
+print(f"元组转字符串的结果是：{str(my_tuple)}")
+print(f"字符串转字符串的结果是：{str(my_str)}")
+print(f"集合转字符串的结果是：{str(my_set)}")
+print(f"字典转字符串的结果是：{str(my_dict)}")
+print()
 
+# set(容器) 转为集合
+print(f"列表转集合的结果是：{set(my_list)}")
+print(f"元组转集合的结果是：{set(my_tuple)}")
+print(f"字符串转集合的结果是：{set(my_str)}")
+print(f"集合转集合的结果是：{set(my_set)}")
+print(f"字典转集合的结果是：{set(my_dict)}")
