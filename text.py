@@ -241,3 +241,88 @@
 # # len(字符串) 方法 统计所有字符个数
 # num_3 =len(str_1)
 # print(f"在字符串{str_1}元素总数为{num_3}")
+
+# 序列必须内容连续，有序，支持下标索引。
+# 对序列进行切片操作
+# 格式为 新的数据容器 = 要切片的数据容器[a:b:c]
+# 其中a为起始下标，b为结束下标，c为步长。
+# 取得切片不包括b本身，c等于1可不写，c可为负数。
+# 取到两端可不写
+# list_1 = [1,2,3,4,5,6,7,8,9,10]
+# list_2 = list_1[2:5] #步长为1可不写！
+# print(list_2)
+#
+# yuan_1 = (11,12,13,14,15,16,17,18,19,20)
+# yuan_2 = yuan_1[::2] # 取到两端可不写！
+# print(yuan_2)
+#
+# str_1 = "3.1415926535"
+# str_2 = str_1[-1:-8:-2] # 步长为负数时，起始结束也要为负！
+# print(str_2)
+# 集合会自动去重
+# 集合不支持下标索引
+# 元素进入会打乱顺序
+set_0 = set()
+set_1 = {"Mike","John","Tom","Tom","John","John"}
+print(set_1,type(set_1))
+
+# add 方法
+set_1.add("Jerry")
+print(f"添加Jerry后为{set_1}")
+
+# remove 方法
+set_1.remove("John")
+print(f"移除John后的集合为{set_1}")
+
+# pop 方法
+# 没有参数，随机取出！！！取出后原集合的元素被删除，输出到新集合中。
+set_2 = set_1.pop()
+print(f"从集合set_1中随机取出的元素是{set_2}")
+print(f"集合set_1被pop方法随机取出元素后为：{set_1}")
+
+# clear 方法
+set_1.clear()
+print(f"集合被清空后为：{set_1}") # set()为空集
+
+# difference 方法
+# 格式为：集合一.difference(集合二)
+# 取出两集合的差集，得到一个新集合，原集合不变。
+# 取出的是集合一有而集合二没有的元素。
+set_3 = {1,2,3,4,5,6,7,8,9}
+set_4 = {2,3,4,5,6,10,11}
+set_5 = set_3.difference(set_4)
+print(f"集合{set_3}与集合{set_4}的差集为{set_5}")
+
+# difference_update 方法
+# 格式为 集合一.difference_update(集合二)
+# 在集合一中，删除和集合二相同的元素。
+# 得到一个新集合。
+# 集合一被修改，集合二不变。
+set_6 = {1,2,3,7,8,9}
+set_7 = {2,3,4,5,6,7,10,11}
+set_8 = set_3.difference_update(set_4)
+print(f"集合{set_6}删除与集合{set_7}相同的元素后为：{set_8}") # None为空集
+
+# union 方法
+# 合并集合
+# 格式为 集合一.union(集合二)
+# 得到一个新集合，集合一二不变。
+set_9 = {1,2,3}
+set_10 = {1,4,5}
+set_11 = set_9.union(set_10)
+print(f"{set_9}与{set_10}组成的新集合为：{set_11}")
+
+# len 方法
+# 统计集合元素个数
+# 格式为 sum = len(集合)
+set_12 = {1,1,4,5,1,4}
+sum_1 = len(set_12)
+print(f"集合{set_12}的元素个数为：{sum_1}个")
+
+# 集合的遍历
+# 集合不能通过while循环遍历，因为没有下标
+# 但可以用for循环遍历
+set_13 = {3,1,4,1,5,9,2,6,5,3,5}
+for i in set_13:
+    print(f"集合的元素有：{i}")
+    i += 1
