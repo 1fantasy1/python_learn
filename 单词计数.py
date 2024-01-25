@@ -14,3 +14,4 @@ for line in f:
         if word == "itheima":
             i += 1
 print(f"itheima出现的次数为：{i}")
+f.close()
