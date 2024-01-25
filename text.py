@@ -86,6 +86,7 @@
 # texta()
 # textb()
 # print(num)
+# import time
 
 # #列表用中括号[]定义
 # name_list = ["Tom", "Lisy", "Rose"]
@@ -496,4 +497,10 @@
 # print(f"集合对象反向排序的结果是：{sorted(my_set,reverse = True)}")
 # print(f"字典对象反向排序的结果是：{sorted(my_dict,reverse = True)}")
 
-#字符串大小比较
+# 文件打开
+# f = open("D:\测试.txt","r",encoding="utf-8")
+# print(type(f))
+# sum_1 = f.read(3)
+# print(sum_1)
+# # time.sleep(50000)
+# f.close()
