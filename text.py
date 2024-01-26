@@ -504,3 +504,12 @@
 # print(sum_1)
 # # time.sleep(50000)
 # f.close()
+import time
+# time.sleep(1)
+# from time import sleep
+# sleep(2)
+# time.sleep(2)
+from time import *
+# sleep(5)
+from time import sleep as shui
+shui(5)
