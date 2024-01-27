@@ -86,7 +86,6 @@
 # texta()
 # textb()
 # print(num)
-# import time
 
 # #列表用中括号[]定义
 # name_list = ["Tom", "Lisy", "Rose"]
@@ -504,12 +503,44 @@
 # print(sum_1)
 # # time.sleep(50000)
 # f.close()
-import time
+
+# import time
 # time.sleep(1)
 # from time import sleep
 # sleep(2)
 # time.sleep(2)
-from time import *
+# from time import *
 # sleep(5)
-from time import sleep as shui
-shui(5)
+# from time import sleep as shui
+# shui(5)
+# 导入自定义包的模块，并使用。
+# 方法一
+# import learn.module_1
+# import learn.module_2
+# learn.module_1.info_print1()
+# learn.module_2.info_print2()
+
+# 方法二
+# from learn.module_1 import info_print1
+# from learn.module_2 import info_print2
+# learn.module_1.info_print1()
+# learn.module_2.info_print2()
+
+# 方法三
+# from learn.module_1 import info_print1
+# from learn.module_2 import info_print2
+# info_print1()
+# info_print2()
+
+# 有__all__的情况下：如；__all__ = ["module_1"]
+# from learn import *
+# learn.module_1.info_print1()
+# # learn.module_2.info_print2() # 会报错！！！
+
+import my_utils.str_util
+from my_utils import file_util
+print(my_utils.str_util.str_reverse('hello'))
+print(my_utils.str_util.substr("hello", 1, 3))
+
+file_util.append_to_file("D:/hello.txt","hello")
+file_util.print_file_info("D:/hello.txt")
