@@ -633,8 +633,33 @@ class Student():
         self.age = age
         self.tel = tel
     print("Student类创建了一个类对象") # 这条语句已经执行了
-stu = Student("小明", "18", "123456789")
+    def __str__(self):
+        # __str__字符串方法
+        # 当类对象需要被转化为字符串时，会输出对应结果
+        return f"Student类对象， name = {self.name}, age = {self.age}, tel = {self.tel}"
+    def __lt__(self, other): # __lt__小于符号比较
+        return self.age < other.age
 
-print(stu.name)
-print(stu.age)
-print(stu.tel)
+    def __le__(self, other): # __le__小于等于比较
+        return self.age <= other.age
+stu_1 = Student("小明", "18", "123456789")
+stu_2 = Student("小李","20","987654321")
+
+print(stu_1.name)
+print(stu_1.age)
+print(stu_1.tel)
+print(stu_2.name)
+print(stu_2.age)
+print(stu_2.tel)
+
+#字符串方法输出结果
+print(stu_1)
+print(str(stu_2))
+
+# 进行小于符号比较
+print(stu_1 < stu_2)
+print(stu_1 > stu_2)
+
+# 进行小于等于符号比较
+print(stu_1 <= stu_2)
+print(stu_1 >= stu_2)
