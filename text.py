@@ -621,52 +621,67 @@
 # print(f"闹钟的序列号是{clock_2.id}，价格是{clock_2.price}")
 # clock_2.ring()
 
-class Student():
-    name = None
-    age = None
-    tel = None
+# class Student():
+#     name = None
+#     age = None
+#     tel = None
+#
+#     # __init__ 会自动执行
+#     # self不能忘！！！
+#     def __init__(self, name, age, tel):
+#         self.name = name
+#         self.age = age
+#         self.tel = tel
+#     print("Student类创建了一个类对象") # 这条语句已经执行了
+#     def __str__(self):
+#         # __str__字符串方法
+#         # 当类对象需要被转化为字符串时，会输出对应结果
+#         return f"Student类对象， name = {self.name}, age = {self.age}, tel = {self.tel}"
+#     def __lt__(self, other): # __lt__小于符号比较
+#         return self.age < other.age
+#
+#     def __le__(self, other): # __le__小于等于比较
+#         return self.age <= other.age
+#
+#     def __eq__(self, other):
+#         # __eq__ 比较运算符，比较是否相等
+#         # 如果不加，==或!=则会比较内存地址。
+#         return self.age == other.age
+#
+# stu_1 = Student("小明", "18", "123456789")
+# stu_2 = Student("小李","20","987654321")
+#
+# print(stu_1.name)
+# print(stu_1.age)
+# print(stu_1.tel)
+# print(stu_2.name)
+# print(stu_2.age)
+# print(stu_2.tel)
+#
+# #字符串方法输出结果
+# print(stu_1)
+# print(str(stu_2))
+#
+# # 进行小于符号比较年龄
+# print(stu_1 < stu_2)
+# print(stu_1 > stu_2)
+#
+# # 进行小于等于符号比较年龄
+# print(stu_1 <= stu_2)
+# print(stu_1 >= stu_2)
+#
+# # 比较运算符判断年龄是否相等
+# print(stu_1 == stu_2)
+# print(stu_1 != stu_2)
+class Phone:
+    __current_voltage = 0.5 # 当前手机电压
 
-    # __init__ 会自动执行
-    # self不能忘！！！
-    def __init__(self, name, age, tel):
-        self.name = name
-        self.age = age
-        self.tel = tel
-    print("Student类创建了一个类对象") # 这条语句已经执行了
-    def __str__(self):
-        # __str__字符串方法
-        # 当类对象需要被转化为字符串时，会输出对应结果
-        return f"Student类对象， name = {self.name}, age = {self.age}, tel = {self.tel}"
-    def __lt__(self, other): # __lt__小于符号比较
-        return self.age < other.age
-
-    def __le__(self, other): # __le__小于等于比较
-        return self.age <= other.age
-
-    def __eq__(self, other): # __eq__ 比较运算符
-        return self.age == other.age
-
-stu_1 = Student("小明", "18", "123456789")
-stu_2 = Student("小李","20","987654321")
-
-print(stu_1.name)
-print(stu_1.age)
-print(stu_1.tel)
-print(stu_2.name)
-print(stu_2.age)
-print(stu_2.tel)
-
-#字符串方法输出结果
-print(stu_1)
-print(str(stu_2))
-
-# 进行小于符号比较年龄
-print(stu_1 < stu_2)
-print(stu_1 > stu_2)
-
-# 进行小于等于符号比较年龄
-print(stu_1 <= stu_2)
-print(stu_1 >= stu_2)
-
-# 比较运算符判断年龄是否相等
-print(stu_1 == stu_2)
+    def __keep_single_core(self):
+        print("让CPU以单核模式运行")
+    def call_by_5g(self):
+        if self.__current_voltage >= 1:
+            print("5g通话以开启")
+        else:
+            print("电量不足，无法使用5g通话，并让CPU以单核模式运行")
+phone = Phone()
+phone.call_by_5g()
