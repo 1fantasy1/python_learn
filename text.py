@@ -537,10 +537,63 @@
 # learn.module_1.info_print1()
 # # learn.module_2.info_print2() # 会报错！！！
 
-import my_utils.str_util
-from my_utils import file_util
-print(my_utils.str_util.str_reverse('hello'))
-print(my_utils.str_util.substr("hello", 1, 3))
+# import my_utils.str_util
+# from my_utils import file_util
+# print(my_utils.str_util.str_reverse('hello'))
+# print(my_utils.str_util.substr("hello", 1, 3))
+#
+# file_util.append_to_file("D:/hello.txt","hello")
+# file_util.print_file_info("D:/hello.txt")
 
-file_util.append_to_file("D:/hello.txt","hello")
-file_util.print_file_info("D:/hello.txt")
+# # 设计一个类
+# class Student:
+#     name = None         # 记录学生姓名
+#     gender = None       # 记录学生性别
+#     nationality = None  # 记录学生国籍
+#     native_place = None # 记录学生籍贯
+#     age = None          # 记录学生年龄
+#
+# # 创建一个对象
+# stu_1 = Student()
+# stu_2 = Student()
+#
+# # 对对象属性进行赋值
+# stu_1.name = "小明"
+# stu_1.gender = "男"
+# stu_1.nationality = "中国"
+# stu_1.native_place = "北京"
+# stu_1.age = 18
+#
+# # 输出对象属性
+# print(stu_1.name)
+# print(stu_1.gender)
+# print(stu_1.nationality)
+# print(stu_1.native_place)
+# print(stu_1.age)
+
+# 定义一个带成员方法的类
+class Student():
+    name = None # 学生姓名
+
+    # self 必须写
+    def say_hi(self):
+        print(f'大家好，我是{self.name},大家多多关照')
+
+    def say_hi2(self,msg):
+        print(f"大家好，我是{self.name},{msg}")
+
+stu = Student()
+stu.name = "小明"
+stu.say_hi()
+
+stu2 = Student()
+stu2.name = "小王"
+stu2.say_hi()
+
+stu = Student()
+stu.name = "小明"
+stu.say_hi2("哎呦，不错哦")
+
+stu2 = Student()
+stu2.name = "小王"
+stu2.say_hi2("小伙子，我看好你哟")
