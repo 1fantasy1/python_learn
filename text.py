@@ -674,14 +674,54 @@
 # print(stu_1 == stu_2)
 # print(stu_1 != stu_2)
 class Phone:
-    __current_voltage = 0.5 # 当前手机电压
+    IMEI = 866224065939984
+    producer = "Apple"
+    __current_voltage = 2 # 当前手机电压
 
     def __keep_single_core(self):
         print("让CPU以单核模式运行")
-    def call_by_5g(self):
+    def call_by_4g(self):
         if self.__current_voltage >= 1:
-            print("5g通话以开启")
+            print("4g通话已开启")
         else:
-            print("电量不足，无法使用5g通话，并让CPU以单核模式运行")
-phone = Phone()
-phone.call_by_5g()
+            print("电量不足，无法使用4g通话，并让CPU以单核模式运行")
+phone_1 = Phone()
+phone_1.call_by_4g()
+
+# 类的继承
+class Phone2024(Phone): # 括号里写需要继承的类，单继承
+    face_id = "10000"
+    producer = "HW"
+
+    def call_by_5g(self):
+        print("2024年新功能：5g通话")
+phone_2 = Phone2024()
+
+phone_2.call_by_4g()
+print(phone_2.IMEI)
+
+class NFCReader:
+    nfc_type = "第五代"
+
+    def read_card(self):
+        print("NFC读卡")
+    def write_card(self):
+        print("NFC写卡")
+class RemoteControl:
+    rc_type = "红外遥控"
+
+    def control(self):
+        print("红外遥控开启了")
+
+#多继承
+class Phone2077(Phone2024,NFCReader,RemoteControl):
+    pass
+# 若多继承的类有相同的属性，则最先继承的类的属性优先。
+# 例如上面的优先级是Phone2024 > NFCReader > RemoteConerol
+
+MyPhone = Phone2077()
+MyPhone.call_by_4g()
+MyPhone.call_by_5g()
+MyPhone.read_card()
+MyPhone.write_card()
+MyPhone.control()
