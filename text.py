@@ -597,3 +597,44 @@
 # stu2 = Student()
 # stu2.name = "小王"
 # stu2.say_hi2("小伙子，我看好你哟")
+
+# class Clock:
+#     id = None # 序列号
+#     price = None # 价格
+#
+#     def ring(self):
+#         import winsound
+#         winsound.Beep(500,500)
+#
+# # 构建两个闹钟对象并使其工作
+# # 闹钟一
+# clock_1 = Clock()
+# clock_1.id = "0001"
+# clock_1.price = 19.99
+# print(f"闹钟的序列号是{clock_1.id}，价格是{clock_1.price}")
+# clock_1.ring()
+#
+# #闹钟二
+# clock_2 = Clock()
+# clock_2.id = "0002"
+# clock_2.price = 29.99
+# print(f"闹钟的序列号是{clock_2.id}，价格是{clock_2.price}")
+# clock_2.ring()
+
+class Student():
+    name = None
+    age = None
+    tel = None
+
+    # __init__ 会自动执行
+    # self不能忘！！！
+    def __init__(self, name, age, tel):
+        self.name = name
+        self.age = age
+        self.tel = tel
+    print("Student类创建了一个类对象") # 这条语句已经执行了
+stu = Student("小明", "18", "123456789")
+
+print(stu.name)
+print(stu.age)
+print(stu.tel)
