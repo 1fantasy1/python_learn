@@ -691,7 +691,6 @@ phone_1.call_by_4g()
 # 类的继承
 class Phone2024(Phone): # 括号里写需要继承的类，单继承
     face_id = "10000"
-    producer = "HW"
 
     def call_by_5g(self):
         print("2024年新功能：5g通话")
@@ -699,6 +698,9 @@ phone_2 = Phone2024()
 
 phone_2.call_by_4g()
 print(phone_2.IMEI)
+
+class producer:
+    producer = "HW"
 
 class NFCReader:
     nfc_type = "第五代"
@@ -714,10 +716,10 @@ class RemoteControl:
         print("红外遥控开启了")
 
 #多继承
-class Phone2077(Phone2024,NFCReader,RemoteControl):
-    pass
 # 若多继承的类有相同的属性，则最先继承的类的属性优先。
 # 例如上面的优先级是Phone2024 > NFCReader > RemoteConerol
+class Phone2077(Phone2024,producer,NFCReader,RemoteControl):
+    pass # 占位语句，表示空，没有内容的意思，用来保证语法完整性
 
 MyPhone = Phone2077()
 MyPhone.call_by_4g()
@@ -725,3 +727,5 @@ MyPhone.call_by_5g()
 MyPhone.read_card()
 MyPhone.write_card()
 MyPhone.control()
+print(MyPhone.producer)
+
