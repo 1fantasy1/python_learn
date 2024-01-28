@@ -642,6 +642,10 @@ class Student():
 
     def __le__(self, other): # __le__小于等于比较
         return self.age <= other.age
+
+    def __eq__(self, other): # __eq__ 比较运算符
+        return self.age == other.age
+
 stu_1 = Student("小明", "18", "123456789")
 stu_2 = Student("小李","20","987654321")
 
@@ -656,10 +660,13 @@ print(stu_2.tel)
 print(stu_1)
 print(str(stu_2))
 
-# 进行小于符号比较
+# 进行小于符号比较年龄
 print(stu_1 < stu_2)
 print(stu_1 > stu_2)
 
-# 进行小于等于符号比较
+# 进行小于等于符号比较年龄
 print(stu_1 <= stu_2)
 print(stu_1 >= stu_2)
+
+# 比较运算符判断年龄是否相等
+print(stu_1 == stu_2)
