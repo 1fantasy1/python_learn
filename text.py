@@ -673,59 +673,83 @@
 # # 比较运算符判断年龄是否相等
 # print(stu_1 == stu_2)
 # print(stu_1 != stu_2)
-class Phone:
-    IMEI = 866224065939984
-    producer = "Apple"
-    __current_voltage = 2 # 当前手机电压
-
-    def __keep_single_core(self):
-        print("让CPU以单核模式运行")
-    def call_by_4g(self):
-        if self.__current_voltage >= 1:
-            print("4g通话已开启")
-        else:
-            print("电量不足，无法使用4g通话，并让CPU以单核模式运行")
-phone_1 = Phone()
-phone_1.call_by_4g()
-
-# 类的继承
-class Phone2024(Phone): # 括号里写需要继承的类，单继承
-    face_id = "10000"
-
-    def call_by_5g(self):
-        print("2024年新功能：5g通话")
-phone_2 = Phone2024()
-
-phone_2.call_by_4g()
-print(phone_2.IMEI)
-
-class producer:
-    producer = "HW"
-
-class NFCReader:
-    nfc_type = "第五代"
-
-    def read_card(self):
-        print("NFC读卡")
-    def write_card(self):
-        print("NFC写卡")
-class RemoteControl:
-    rc_type = "红外遥控"
-
-    def control(self):
-        print("红外遥控开启了")
-
-#多继承
-# 若多继承的类有相同的属性，则最先继承的类的属性优先。
-# 例如上面的优先级是Phone2024 > NFCReader > RemoteConerol
-class Phone2077(Phone2024,producer,NFCReader,RemoteControl):
-    pass # 占位语句，表示空，没有内容的意思，用来保证语法完整性
-
-MyPhone = Phone2077()
-MyPhone.call_by_4g()
-MyPhone.call_by_5g()
-MyPhone.read_card()
-MyPhone.write_card()
-MyPhone.control()
-print(MyPhone.producer)
-
+# class Phone:
+#     IMEI = 866224065939984
+#     producer = "Apple"
+#     __current_voltage = 2 # 当前手机电压
+#
+#     def __keep_single_core(self):
+#         print("让CPU以单核模式运行")
+#     def call_by_4g(self):
+#         if self.__current_voltage >= 1:
+#             print("4g通话已开启")
+#         else:
+#             print("电量不足，无法使用4g通话，并让CPU以单核模式运行")
+# phone_1 = Phone()
+# phone_1.call_by_4g()
+#
+# # 类的继承
+# class Phone2024(Phone): # 括号里写需要继承的类，单继承
+#     face_id = "10000"
+#
+#     def call_by_5g(self):
+#         print("2024年新功能：5g通话")
+# phone_2 = Phone2024()
+#
+# phone_2.call_by_4g()
+# print(phone_2.IMEI)
+#
+# class producer:
+#     producer = "HW"
+#
+# class NFCReader:
+#     nfc_type = "第五代"
+#
+#     def read_card(self):
+#         print("NFC读卡")
+#     def write_card(self):
+#         print("NFC写卡")
+# class RemoteControl:
+#     rc_type = "红外遥控"
+#
+#     def control(self):
+#         print("红外遥控开启了")
+#
+# #多继承
+# # 若多继承的类有相同的属性，则最先继承的类的属性优先。
+# # 例如上面的优先级是Phone2024 > NFCReader > RemoteConerol
+# class Phone2077(Phone2024,producer,NFCReader,RemoteControl):
+#     pass # 占位语句，表示空，没有内容的意思，用来保证语法完整性
+#
+# MyPhone = Phone2077()
+# MyPhone.call_by_4g()
+# MyPhone.call_by_5g()
+# MyPhone.read_card()
+# MyPhone.write_card()
+# MyPhone.control()
+# print(MyPhone.producer)
+# import random
+# import json
+#
+# var_1: int = 10
+# var_2: float = 3.14
+# var_3: str = 'Python'
+# var_4: bool = True
+#
+# class Student:
+#     pass
+# stu: Student = Student()
+#
+# my_list: list = [1, 2, 3]
+# my_tuple: tuple = (1, 'Python', True)
+# my_dict: dict = {'a': 1, 'b': 2, 'c': 3}
+#
+# my_list: list[int] = [1, 2, 3]
+# my_tuple: tuple[int, str, bool] = (1, 'Python', True)
+# my_dict: dict[str, int] = {'a': 1, 'b': 2, 'c': 3}
+#
+# var_1 = random.randint(1,10) # type: int
+# var_2 = json.loads('{"name": "John", "age": 25}') # type: dict[str,str]
+# def func():
+#     return 10
+# var_3 = func() # type: int
