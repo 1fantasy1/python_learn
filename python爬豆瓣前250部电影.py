@@ -11,5 +11,3 @@ for start_num in range(0,250,25):
         if "/" not in title:
             print(f"{i}.{title}")
             i += 1
-# print(r.status_code)
-# print(r.text)
