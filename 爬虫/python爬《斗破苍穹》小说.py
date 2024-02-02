@@ -1,6 +1,5 @@
-import re
+# import re
 import sys
-
 import requests
 from bs4 import BeautifulSoup
 class downloader(object):
@@ -27,31 +26,35 @@ class downloader(object):
             self.name_all.append(each.string)
             self.list_all.append(self.server + each.get('href'))
 
-    def get_text(self):
-        r = requests.get(self.all_url)  # 将获取的网址传入
+    def get_text(self,url_1):
+        r = requests.get(url_1)  # 将获取的网址传入
         r.encoding = "GBK"  # 将解析的网页设置编码为GBK
         soup = BeautifulSoup(r.text, 'html.parser')  # 使用bs4进行HTML处理
         texts = soup.find_all('div', id='content')  # 根据网页格式找到文本正文内容
-        texts = texts[0].text.replace('\r\n', '  ')  # 去除文本中无效的内容
+        texts = texts[0].text.replace('\r\n', '')  # 去除文本中无效的内容
         return texts
-    def write_text(self,name,path, text):
+    def write_text(self, name, path, text):
         write_flag = True
         with open(path, 'a', encoding='utf-8') as f:
             f.write(name + '\n')
             f.writelines(text)
-            f.writelines('\n\n')
+            f.writelines('\n')
 if __name__ == '__main__':
     dl = downloader()
     dl.title_url()
     print("斗破苍穹开始下载：")
+    print(dl.num)
+    print(dl.list_all)
+    print(dl.name_all)
     for i in range(dl.num):
-        dl.write_text(dl.name_all[i], "斗破苍穹.txt", dl.get_text(dl.all_url[i]))
+        g = dl.list_all[i]
+        dl.write_text(name = dl.name_all[i], path= "D:/斗破苍穹.txt", text = dl.get_text(g))
         sys.stdout.write("已下载：%.3f%%" % float(i/dl.num) + "\r")
         sys.stdout.flush()
     print("《斗破苍穹》下载完成")
-# downloader_1 = downloader()
-# downloader_1.title_url()
-# print(downloader_1.list_all[1648])
+
+
+# 废案
 
 # url_1 = title_url_acquire.title_url('https://www.biquge.co/20_20386/')
 # text_1 = text_acquire.get_text(url_1[9])
