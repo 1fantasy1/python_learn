@@ -2,6 +2,14 @@
 import sys
 import requests
 from bs4 import BeautifulSoup
+
+# proxies = [
+#     {'http':'socks5://127.0.0.1:1234'},
+#     {'https':'socks5://127.0.0.1:1234'}
+# ]                                             # 如果网站被墙，则挂代理
+# proxies = random.choice(proxies)
+# print(proxies)
+
 class downloader(object):
     def __init__(self):
         self.server = "https://www.biquge.co/"          # 爬取的网站
@@ -23,8 +31,8 @@ class downloader(object):
         all_text = soup.findAll('a')    # 使用FindAll方法寻找<a>标签下的各章节网址，传入all_text列表
         self.num = len(all_text[41:1690])    # 计算章节数
         for each in all_text[41:1690]:
-            self.name_all.append(each.string)
-            self.list_all.append(self.server + each.get('href'))
+            self.name_all.append(each.string)                       #获取章节名
+            self.list_all.append(self.server + each.get('href'))    #拼接网址
 
     def get_text(self,url_1):
         r = requests.get(url_1)  # 将获取的网址传入
@@ -36,16 +44,13 @@ class downloader(object):
     def write_text(self, name, path, text):
         write_flag = True
         with open(path, 'a', encoding='utf-8') as f:
-            f.write(name + '\n')
-            f.writelines(text)
-            f.writelines('\n')
+            f.write(name + '\n')        # 写入章节名
+            f.writelines(text)          # 写入正文
+            f.writelines('\n')          # 换行隔开每一章
 if __name__ == '__main__':
     dl = downloader()
     dl.title_url()
     print("斗破苍穹开始下载：")
-    print(dl.num)
-    print(dl.list_all)
-    print(dl.name_all)
     for i in range(dl.num):
         g = dl.list_all[i]
         dl.write_text(name = dl.name_all[i], path= "D:/斗破苍穹.txt", text = dl.get_text(g))
