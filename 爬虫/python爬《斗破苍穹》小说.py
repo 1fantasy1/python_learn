@@ -20,6 +20,7 @@ class downloader(object):
 
     def title_url(self):
         """
+
         :param all_url: 需要解析的小说目录
         :return: 解析后的小说章节网址
         """
@@ -35,6 +36,11 @@ class downloader(object):
             self.list_all.append(self.server + each.get('href'))    #拼接网址
 
     def get_text(self,url_1):
+        """
+
+        :param url_1: 章节网址
+        :return: 正文内容
+        """
         r = requests.get(url_1)  # 将获取的网址传入
         r.encoding = "GBK"  # 将解析的网页设置编码为GBK
         soup = BeautifulSoup(r.text, 'html.parser')  # 使用bs4进行HTML处理
@@ -42,6 +48,13 @@ class downloader(object):
         texts = texts[0].text.replace('\r\n', '')  # 去除文本中无效的内容
         return texts
     def write_text(self, name, path, text):
+        """
+
+        :param name:    章节名
+        :param path:    文件保存路径
+        :param text:    正文内容
+        :return:        无
+        """
         write_flag = True
         with open(path, 'a', encoding='utf-8') as f:
             f.write(name + '\n')        # 写入章节名
