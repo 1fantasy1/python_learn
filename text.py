@@ -753,3 +753,5 @@
 # def func():
 #     return 10
 # var_3 = func() # type: int
+# print(sum(map(int,str(123456))))
+print(eval('3+2'+'10'))

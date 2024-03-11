@@ -47,6 +47,8 @@ class downloader(object):
         soup = BeautifulSoup(r.text, 'html.parser')  # 使用bs4进行HTML处理
         texts = soup.find_all('div', id='content')  # 根据网页格式找到文本正文内容
         texts = texts[0].text.replace('\r\n', '')  # 去除文本中无效的内容
+                                                               #\xa0 是不间断空白符 &nbsp(\r\n)
+                                                               #\u3000是全角的空白符
         return texts
     def write_text(self, name, path, text):
         """
