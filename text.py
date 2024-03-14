@@ -754,4 +754,23 @@
 #     return 10
 # var_3 = func() # type: int
 # print(sum(map(int,str(123456))))
-print(eval('3+2'+'10'))
+# print(eval('3+2'+'10'))
+# len(zip([1,2,3], 'abcdefg'))
+# x = {1,2,3}
+# y = 3 * x
+# x = zip('abc', '1234')
+# x = list(range(10))
+# print(x[-4:])
+# x = [3,5,3,7]
+# x.index(i)
+# for i in x:
+#     if i==3:
+#         print('1')
+# index for index, value in enumerate([3,5,3,7]) if value==3
+# my_set = { [1, 2, 3], [4, 5, 6] }
+# print('abc' in 'abdc')
+# names=['Bob','Tom','alice','jerry','Wendy','Smith']
+# new_list=[name.upper() for name in names if len(name)>3]
+# print(new_list)
+new_tuple=(x for x in range(31) if x%2==0)
+print(new_tuple)
