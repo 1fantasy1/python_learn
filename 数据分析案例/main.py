@@ -1,5 +1,5 @@
 from data_define import Record
-from file_define import FileReader, TextFileReader, JsonFileReader
+from file_define import TextFileReader, JsonFileReader
 
 text_file_reader = TextFileReader("D:/2011年1月销售数据.txt")
 json_file_reader = JsonFileReader("D:/2011年2月销售数据JSON.txt")

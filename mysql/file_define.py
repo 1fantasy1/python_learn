@@ -18,7 +18,7 @@ class TextFileReader(FileReader):
         self.path = path        # 定义成员变量记录文件的路径
     def read_data(self) ->list[Record]:
         f = open(self.path,'r',encoding='utf-8')
-        record_list: list[Record] = [] # 这里的list[Record]为类型注解
+        record_list: list[Record] = []
         for line in f.readlines():
             line = line.strip('\n') #去除读取到的每一行数据中的\n
             data_list = line.split(",")
@@ -33,7 +33,7 @@ class JsonFileReader(FileReader):
 
     def read_data(self) -> list[Record]:
         f = open(self.path, 'r', encoding='utf-8')
-        record_list: list[Record] = [] # 这里的list[Record]为类型注解
+        record_list: list[Record] = []
         for line in f.readlines():
             data_dict = json.loads(line)
             record = Record(data_dict["date"],data_dict["order_id"],int(data_dict["money"]),data_dict["province"])
