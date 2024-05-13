@@ -1,4 +1,4 @@
-# 将学号为10005的学生， OperatingSystems(00004)成绩为73分这一记录写入选课表中。
+# 将学号为10005的学生， OperatingSystems(00004)成绩为73分这一记录写入选课表中
 import pymysql.cursors
 
 # 连接数据库
