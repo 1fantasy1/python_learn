@@ -1,4 +1,4 @@
-i = 1
+1i = 1
 sum = 0
 sum_figure = int(input("请输入要加到几:"))
 while i <= sum_figure:

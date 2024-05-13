@@ -3,7 +3,7 @@ from kafka import KafkaConsumer
 # 创建 Kafka 消费者实例
 consumer = KafkaConsumer(
     # 指定要订阅的主题（可以是一个字符串或字符串列表）
-    'test',
+    'topic0',
     # 指定 Kafka 集群的启动服务器地址和端口号
     bootstrap_servers=['localhost:9092'],
     # 指定消费者组的 ID，设置为 None 表示不加入任何消费者组
