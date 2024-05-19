@@ -151,11 +151,9 @@
 #     main(xtype='p', group='py_test', key=None)  # 执行生产模块
 #     main(xtype='c', group='py_test', key=None)  # 执行消费模块
 
-import pandas as pd
 import json
 from kafka import KafkaProducer
 from kafka.errors import KafkaError
-from sqlalchemy import create_engine
 import pymysql
 import csv
 
