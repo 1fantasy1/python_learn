@@ -1,0 +1,2 @@
+{'message': '你好!KAFKA.'}
+{'message': '这是一条测试信息.'}
