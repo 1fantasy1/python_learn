@@ -1,24 +1,24 @@
-from kafka import KafkaConsumer
+# from kafka import KafkaConsumer
+#
+# # 创建 Kafka 消费者实例
+# consumer = KafkaConsumer(
+#     # 指定要订阅的主题（可以是一个字符串或字符串列表）
+#     'mytopic',
+#     # 指定 Kafka 集群的启动服务器地址和端口号
+#     bootstrap_server:9092'],
+#     # 指定消费者组的 ID，设置为 None 表示不加入任何消费者组
+#     group_id=None,
+#     # 指定当没有初始偏移量或偏移量无效时消费者该如何处理
+#     auto_offset_reset='smallest',  # 从最早的消息开始消费，可选的值还有 'largest' 表示从最新的消息开始消费
+# )
+#
+# for msg in consumer:
+#     # 从消息对象中提取相关信息
+#     recv = "%s:%d:%d: key=%s value=%s" % (msg.topic, msg.partition, msg.offset, msg.key, msg.value)
+#     # 打印接收到的消息信息
+#     print(recv)
 
-# 创建 Kafka 消费者实例
-consumer = KafkaConsumer(
-    # 指定要订阅的主题（可以是一个字符串或字符串列表）
-    'topic0',
-    # 指定 Kafka 集群的启动服务器地址和端口号
-    bootstrap_servers=['localhost:9092'],
-    # 指定消费者组的 ID，设置为 None 表示不加入任何消费者组
-    group_id=None,
-    # 指定当没有初始偏移量或偏移量无效时消费者该如何处理
-    auto_offset_reset='smallest',  # 从最早的消息开始消费，可选的值还有 'largest' 表示从最新的消息开始消费
-)
 
-for msg in consumer:
-    # 从消息对象中提取相关信息
-    recv = "%s:%d:%d: key=%s value=%s" % (msg.topic, msg.partition, msg.offset, msg.key, msg.value)
-    # 打印接收到的消息信息
-    print(recv)
-
-'''
 from confluent_kafka import Consumer, KafkaError
 
 def consume_messages(bootstrap_servers, group_id, topic):
@@ -60,8 +60,8 @@ def consume_messages(bootstrap_servers, group_id, topic):
 if __name__ == "__main__":
     bootstrap_servers = 'localhost:9092'  # Kafka 服务器地址
     group_id = 'my_consumer_group'  # 消费者组ID
-    topic = 'your_topic'  # Kafka 主题
+    topic = 'mytopic'  # Kafka 主题
 
     # 接收消息并打印
     consume_messages(bootstrap_servers, group_id, topic)
-'''
+
