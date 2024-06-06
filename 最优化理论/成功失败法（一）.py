@@ -61,22 +61,26 @@
 #
 # print(interval,f_min)
 def f(x):
-    return x**4 - x**2 - 2*x - 5
+    return x**4 - x**2 - 2*x - 5 #32264700042 杨金城
 
 # 初始化参数
 x0 = 0
 h0 = 0.01
 
 # 成功失败法
+iteration = 0  # 记录迭代次数
+print(f"迭代第{iteration}次: x0 = {x0}, f(x0) = {f(x0)}") #32264700042 杨金城
 while True:
+    iteration += 1
     if f(x0 + h0) < f(x0):
         x0 += h0
     else:
         x0 -= h0
+    print(f"迭代第{iteration}次: x0 = {x0}, f(x0) = {f(x0)}") #32264700042 杨金城
     # 检查是否找到了最小值区间
     if f(x0 + h0) >= f(x0) and f(x0 - h0) >= f(x0):
         break
 
 # 最小值区间
 min_value_interval = (x0 - h0, x0 + h0)
-print(min_value_interval)
+print(f"最小值所在区间: {min_value_interval}")
