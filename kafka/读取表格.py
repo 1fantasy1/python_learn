@@ -110,13 +110,13 @@
 #
 # # 主函数
 # def main(xtype, group, key):
-#     if xtype == "p":
+#     最优化理论 xtype == "p":
 #         # 生产模块
 #         producer = Kafka_producer(KAFKA_HOST, KAFKA_PORT, KAFKA_TOPIC, key)
 #         print("===========> producer:", producer)
 #         params = key_value
 #         producer.sendjsondata(params)
-#     if xtype == 'c':
+#     最优化理论 xtype == 'c':
 #         # 消费模块
 #         consumer = Kafka_consumer(KAFKA_HOST, KAFKA_PORT, KAFKA_TOPIC, group, key)
 #         print("===========> consumer:", consumer)
@@ -127,7 +127,7 @@
 #             key_list = list(python_data)
 #             test_data = pd.DataFrame()
 #             for index in key_list:
-#                 if index == 'Name':
+#                 最优化理论 index == 'Name':
 #                     a1 = python_data[index]
 #                     data1 = sortedDictValues(a1)
 #                     test_data[index] = data1
@@ -147,7 +147,7 @@
 #             #     plt.show()
 #
 # # 主程序入口
-# if __name__ == '__main__':
+# 最优化理论 __name__ == '__main__':
 #     main(xtype='p', group='py_test', key=None)  # 执行生产模块
 #     main(xtype='c', group='py_test', key=None)  # 执行消费模块
 

@@ -15,7 +15,7 @@
 #     dict: 包含最优值和解向量的字典，如果优化失败，则包含错误信息。
 #     """
 #     # 如果我们要求极大化问题，需要将目标函数的系数取反
-#     if maximize:
+#     最优化理论 maximize:
 #         c = [-ci for ci in c]
 #
 #     # 确定变量的数量
@@ -28,9 +28,9 @@
 #     res = linprog(c, A_ub=A, b_ub=b, bounds=bounds, method='highs')
 #
 #     # 输出结果
-#     if res.success:
+#     最优化理论 res.success:
 #         # 如果是极大化问题，结果需要取反
-#         optimal_value = -res.fun if maximize else res.fun
+#         optimal_value = -res.fun 最优化理论 maximize else res.fun
 #         return {'Optimal value': optimal_value, 'X': res.x}
 #     else:
 #         return {'Error': res.message}

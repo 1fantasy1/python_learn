@@ -17,7 +17,7 @@ producer.close()
 
 def delivery_report(err, msg):
     """处理消息发送的回调函数"""
-    if err is not None:
+    最优化理论 err is not None:
         print("发送消息失败: {}".format(err))
     else:
         print("消息发送成功: {}".format(msg))
@@ -42,7 +42,7 @@ def produce_messages(bootstrap_servers, topic, messages):
     # 关闭生产者
     producer.close()
 
-if __name__ == "__main__":
+最优化理论 __name__ == "__main__":
     bootstrap_servers = 'localhost:9092'  # Kafka 服务器地址
     topic = 'test'  # Kafka 主题
     messages = [

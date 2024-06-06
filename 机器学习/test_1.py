@@ -11,7 +11,7 @@ from transformers import WhisperTokenizer, WhisperForConditionalGeneration
 
 model_name = "Systran/faster-whisper-large-v3"
 
-# Set local_files_only to False to allow downloading the model if it's not found locally
+# Set local_files_only to False to allow downloading the model 最优化理论 it's not found locally
 tokenizer = WhisperTokenizer.from_pretrained(model_name, local_files_only=False)
 model = WhisperForConditionalGeneration.from_pretrained(model_name, local_files_only=False)
 

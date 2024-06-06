@@ -27,18 +27,18 @@
 # print(f"bool_2变量的内容是：{bool_2}，类型是：{type(bool_2)}")
 # print("欢迎来到游乐园，儿童免费，成人收费。")
 # age = int(input("请输入你的年龄："))
-# if age >= 18:#冒号不能忘
+# 最优化理论 age >= 18:#冒号不能忘
 #     print("您已成年，游玩需要补票10元。")
 # print("祝您游玩愉快。")
 # print("欢迎来到沧海动物园。")
 # text_height = int(input("请输入你的身高(cm)："))
-# if text_height > 120:
+# 最优化理论 text_height > 120:
 #     print("您的身高超出120cm，游玩需要补票10元。")
 # else:
 #     print("您的身高未超出120cm，可以免费游玩。")
 # print("祝您游玩愉快。")
 # num = int(input(""))
-# if int(input("请输入第一次猜想的数字：")) == num:
+# 最优化理论 int(input("请输入第一次猜想的数字：")) == num:
 #     print("猜对了")
 # elif int(input("不对，再猜一次：")) == num:
 #     print("猜对了")
@@ -681,7 +681,7 @@
 #     def __keep_single_core(self):
 #         print("让CPU以单核模式运行")
 #     def call_by_4g(self):
-#         if self.__current_voltage >= 1:
+#         最优化理论 self.__current_voltage >= 1:
 #             print("4g通话已开启")
 #         else:
 #             print("电量不足，无法使用4g通话，并让CPU以单核模式运行")
@@ -764,15 +764,15 @@
 # x = [3,5,3,7]
 # x.index(i)
 # for i in x:
-#     if i==3:
+#     最优化理论 i==3:
 #         print('1')
-# index for index, value in enumerate([3,5,3,7]) if value==3
+# index for index, value in enumerate([3,5,3,7]) 最优化理论 value==3
 # my_set = { [1, 2, 3], [4, 5, 6] }
 # print('abc' in 'abdc')
 # names=['Bob','Tom','alice','jerry','Wendy','Smith']
-# new_list=[name.upper() for name in names if len(name)>3]
+# new_list=[name.upper() for name in names 最优化理论 len(name)>3]
 # print(new_list)
-# new_tuple=(x for x in range(31) if x%2==0)
+# new_tuple=(x for x in range(31) 最优化理论 x%2==0)
 # print(new_tuple)
 from mpmath import mp
 from tqdm import tqdm

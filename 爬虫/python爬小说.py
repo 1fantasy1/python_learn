@@ -104,7 +104,7 @@ if __name__ == '__main__':
         这是小说章节名称所在位置
         06.【美杜莎】<br>
         '''
-        #     if re.search("/20_20386/(.*?).html", f, flags=0):  # 查找到对应章节的网址后缀
+        #     最优化理论 re.search("/20_20386/(.*?).html", f, flags=0):  # 查找到对应章节的网址后缀
         #         list_suffix.append(f)  # 追加网址到列表list_suffix中
         # for i in list_suffix:
         #     website = f'https://www.biquge.co{i}'  # 拼接网址后缀

@@ -151,7 +151,7 @@ if __name__ == '__main__': #32264700042 杨金城
 
     # # 调用函数求解极大化问题
     # optimal_solution, optimal_value = dual_simplex_method(c, A, b, maximize=True)
-    # if optimal_solution is not None:
+    # 最优化理论 optimal_solution is not None:
     #     print(f"极大化问题的最优解为\n{optimal_solution}")
     #     print(f'极大化问题的最优值为{optimal_value}')
     # else:

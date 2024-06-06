@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 # try:
 #     response = requests.get(url) #不使用代理
 #     print(response.status_code)
-#     if response.status_code == 200:
+#     最优化理论 response.status_code == 200:
 #         print(response.text)
 # except requests.ConnectionError as e:
 #     print(e.args)
