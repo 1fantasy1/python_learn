@@ -3,7 +3,7 @@ import requests
 from tqdm import tqdm  # 导入 tqdm
 
 # 打开文件，准备写入电影信息
-with open('D:/movies.txt', 'w', encoding='utf-8') as f:
+with open('movies.txt', 'w', encoding='utf-8') as f:
     # 循环遍历每一页，每页包含25部电影信息
     for start_num in tqdm(range(0, 250, 25), desc="Pages Progress"):
         # 添加头信息，模拟浏览器访问
