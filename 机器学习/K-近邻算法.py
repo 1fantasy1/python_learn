@@ -3,9 +3,22 @@ import numpy as np
 from matplotlib import rcParams
 import operator
 
-# 设置字体为 SimHei，以支持中文显示
+# 设置字体为 SimHei，以支持中文
 rcParams['font.sans-serif'] = ['SimHei']
 rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+
+"""
+有人在约会网站寻找适合自己的约会对象，约会网站会推荐不同的人选，经过一番总结，发现曾交往过三种类型的人：
+
+"'didntLike(不喜欢)', 'smallDoses(魅力一般的人)', 'largeDoses(极具魅力的人)'"
+
+它将收集约会数据存放在文本文件 'datingTestSet.txt' 中，每个样本数据占据一行，总共有 1000 行。海伦的样本主要包含以下 3 种特征：
+
+每年获得的飞行常客里程数
+玩视频游戏所耗时间百分比
+每周消费的冰淇淋公升数
+
+"""
 
 def file2matrix(filename):
     """
@@ -165,9 +178,7 @@ def datingClassTest():
 # datingClassTest()
 
 def classifyPerson():
-    """
-    :return: 算法的具体简单命令应用,无返回值
-    """
+
     resultset = ['didntLike(不喜欢)', 'smallDoses(魅力一般的人)', 'largeDoses(极具魅力的人)']
 
     # 加载数据集和标签，并进行归一化处理
