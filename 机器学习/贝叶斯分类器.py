@@ -142,9 +142,9 @@ def main():
     classifier = NaiveBayesClassifier()
     result = classifier.get_label(length, sweetness, color)
     print("预测结果：")
-    print(f"香蕉的概率是：{result['banana']}")
-    print(f"橙子的概率是：{result['orange']}")
-    print(f"其他水果的概率是：{result['other_fruit']}")
+    print(f"香蕉的概率是：{result['banana']:.2f}")
+    print(f"橙子的概率是：{result['orange']:.2f}")
+    print(f"其他水果的概率是：{result['other_fruit']:.2f}")
     # 准备数据
     labels = ['香蕉', '橙子', '其他水果']
     sizes = [result['banana'], result['orange'], result['other_fruit']]
