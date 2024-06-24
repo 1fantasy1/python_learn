@@ -12,7 +12,7 @@ rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 
 "'didntLike(不喜欢)', 'smallDoses(魅力一般的人)', 'largeDoses(极具魅力的人)'"
 
-它将收集约会数据存放在文本文件 'datingTestSet.txt' 中，每个样本数据占据一行，总共有 1000 行。海伦的样本主要包含以下 3 种特征：
+它将收集约会数据存放在文本文件 '求之不得表.txt' 中，每个样本数据占据一行，总共有 1000 行。海伦的样本主要包含以下 3 种特征：
 
 每年获得的飞行常客里程数
 玩视频游戏所耗时间百分比
@@ -134,7 +134,7 @@ def datingClassTest():
     testRadio = 0.1
 
     # 调用函数读取数据
-    datingDataMat, datingDataLabels = file2matrix("datingTestSet.txt")
+    datingDataMat, datingDataLabels = file2matrix("求之不得表.txt")
 
     # 创建图形
     fig = plt.figure()
@@ -182,7 +182,7 @@ def classifyPerson():
     resultset = ['didntLike(不喜欢)', 'smallDoses(魅力一般的人)', 'largeDoses(极具魅力的人)']
 
     # 加载数据集和标签，并进行归一化处理
-    datingDataMat, datingDataLabels = file2matrix("datingTestSet.txt")
+    datingDataMat, datingDataLabels = file2matrix("求之不得表.txt")
     normMat, ranges, minVals = autoNorm(datingDataMat)
 
     # 初始化特征向量为长度为3的零向量
