@@ -2,6 +2,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import rcParams
 import operator
+import requests
+
+# 下载数据文件
+def download_file(url, filename):
+    response = requests.get(url)
+    with open(filename, "wb") as file:
+        file.write(response.content)
+
+# 下载文件的URL
+file_url = "https://gitee.com/fantasy_9928/python_learn/raw/master/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B1%82%E4%B9%8B%E4%B8%8D%E5%BE%97%E8%A1%A8.txt"
+file_name = "求之不得表.txt"
+download_file(file_url, file_name)
 
 # 设置字体为 SimHei，以支持中文
 rcParams['font.sans-serif'] = ['SimHei']
@@ -182,7 +194,7 @@ def classifyPerson():
     resultset = ['didntLike(不喜欢)', 'smallDoses(魅力一般的人)', 'largeDoses(极具魅力的人)']
 
     # 加载数据集和标签，并进行归一化处理
-    datingDataMat, datingDataLabels = file2matrix("求之不得表.txt")
+    datingDataMat, datingDataLabels = file2matrix(file_name)
     normMat, ranges, minVals = autoNorm(datingDataMat)
 
     # 初始化特征向量为长度为3的零向量
