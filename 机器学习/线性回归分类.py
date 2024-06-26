@@ -2,7 +2,7 @@ from matplotlib import rcParams
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 from sklearn.datasets import fetch_openml
-rcParams['font.sans-serif'] = ['SimHei']
+rcParams['font.sans-serif'] = ['Microsoft YaHei']
 
 def ames_housing_analysis():
     print("艾姆斯房价数据回归分析:")

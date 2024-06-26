@@ -3,6 +3,7 @@ import numpy as np
 from matplotlib import rcParams
 import operator
 import requests
+rcParams['font.sans-serif'] = ['Microsoft YaHei']
 
 # 下载数据文件
 def download_file(url, filename):
@@ -14,10 +15,6 @@ def download_file(url, filename):
 file_url = "https://gitee.com/fantasy_9928/python_learn/raw/master/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B1%82%E4%B9%8B%E4%B8%8D%E5%BE%97%E8%A1%A8.txt"
 file_name = "求之不得表.txt"
 download_file(file_url, file_name)
-
-# 设置字体为 SimHei，以支持中文
-rcParams['font.sans-serif'] = ['SimHei']
-rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 
 """
 有人在约会网站寻找适合自己的约会对象，约会网站会推荐不同的人选，经过一番总结，发现曾交往过三种类型的人：

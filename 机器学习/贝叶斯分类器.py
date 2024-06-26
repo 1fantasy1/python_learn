@@ -1,10 +1,7 @@
 # 导入必要的库
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
-
-# 设置字体为 SimHei，以支持中文
-rcParams['font.sans-serif'] = ['SimHei']
-rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
+rcParams['font.sans-serif'] = ['Microsoft YaHei']
 
 # 数据集，包含三种水果（香蕉，橙子，其他水果）的特征数据
 datasets = {
