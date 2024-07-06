@@ -1,3 +1,4 @@
+# 主成分分析
 import numpy as np
 from sklearn.decomposition import PCA
 # 假设X是原始数据矩阵，每一行表示一个样本，每一列表示一个特征

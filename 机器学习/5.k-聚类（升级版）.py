@@ -1,3 +1,4 @@
+# k-聚类(升级版)
 import numpy as np
 
 def kmeans(X, k, max_iters=100, tol=1e-4):

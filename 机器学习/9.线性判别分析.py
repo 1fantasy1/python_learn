@@ -1,3 +1,4 @@
+# 线性判别分析
 import numpy as np
 from matplotlib import rcParams
 from sklearn.datasets import load_iris

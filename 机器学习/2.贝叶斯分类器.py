@@ -1,3 +1,4 @@
+# 贝叶斯分类器
 # 导入必要的库
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
