@@ -20,7 +20,7 @@ sql = "SELECT student.Sno,Sname,Sdept,course.Cno,Cname,Grade "\
       "WHERE student.Sno = sc.Sno AND course.Cno = sc.Cno AND sc.Sno = '%s'"
 
 # 设置数据
-data = ('10002',)
+data = '10002'
 
 # 执行sql语句
 cursor.execute(sql % data)

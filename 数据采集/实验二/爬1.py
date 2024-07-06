@@ -19,7 +19,9 @@ def extract_image_links(html):
     img_tags = soup.find_all('img')
 
     # 提取每个图片标签的src属性值
-    image_urls = [img['src'] for img in img_tags]
+    image_urls = []
+    for img in img_tags:
+        image_urls.append(img['src'])
 
     return image_urls
 
