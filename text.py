@@ -774,7 +774,69 @@
 # print(new_list)
 # new_tuple=(x for x in range(31) 最优化理论 x%2==0)
 # print(new_tuple)
-import requests
-url = "https://github.com/1fantasy1/python_learn/blob/master/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B1%82%E4%B9%8B%E4%B8%8D%E5%BE%97%E8%A1%A8.txt"
-a = requests.get(url)
-print(a.text)
+# import requests
+# url = "https://github.com/1fantasy1/python_learn/blob/master/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B1%82%E4%B9%8B%E4%B8%8D%E5%BE%97%E8%A1%A8.txt"
+# a = requests.get(url)
+# print(a.text)
+
+# import seaborn as sns
+# sns.set(style="darkgrid")
+# ##### 加载数据
+# tips = sns.load_dataset("tips")
+# ##### jointplot 调整对应的参数
+# g = sns.jointplot("total_bill", "tip",
+# data=tips,kind="reg", truncate=False,
+# xlim=(0, 60), ylim=(0, 12),
+# color="m", height=7)
+
+import random
+
+# 原始数据集
+original_datasets = [
+    ['青年', '否', '否', '一般', '否'],
+    ['青年', '否', '否', '好', '否'],
+    ['青年', '是', '否', '好', '是'],
+    ['青年', '是', '是', '一般', '是'],
+    ['青年', '否', '否', '一般', '否'],
+    ['中年', '否', '否', '一般', '否'],
+    ['中年', '否', '否', '好', '否'],
+    ['中年', '是', '是', '好', '是'],
+    ['中年', '否', '是', '非常好', '是'],
+    ['中年', '否', '是', '非常好', '是'],
+    ['老年', '否', '是', '非常好', '是'],
+    ['老年', '否', '是', '好', '是'],
+    ['老年', '是', '否', '好', '是'],
+    ['老年', '是', '否', '非常好', '是'],
+    ['老年', '否', '否', '一般', '否'],
+]
+
+# 扩展数据集
+extended_datasets = original_datasets.copy()
+
+# 定义特征的可能取值
+ages = ['青年', '中年', '老年']
+jobs = ['是', '否']
+houses = ['是', '否']
+credits = ['一般', '好', '非常好']
+
+# 生成额外的200个样本
+for _ in range(200):
+    age = random.choice(ages)
+    job = random.choice(jobs)
+    house = random.choice(houses)
+    credit = random.choice(credits)
+    decision = '否'
+
+    # 根据现有样本的趋势决定决策结果
+    if age == '青年' and job == '是':
+        decision = '是'
+    elif age == '中年' and (house == '是' or credit == '非常好'):
+        decision = '是'
+    elif age == '老年' and (house == '是' or job == '是'):
+        decision = '是'
+
+    extended_datasets.append([age, job, house, credit, decision])
+
+# 输出扩展后的数据集
+for data in extended_datasets:
+    print(data)

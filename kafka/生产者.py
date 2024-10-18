@@ -1,7 +1,7 @@
 from kafka import KafkaProducer
 
 # 连接 Kafka 集群
-producer = KafkaProducer(bootstrap_servers='localhost:9092')
+producer = KafkaProducer(bootstrap_servers='100.100.100.111:9092')
 
 # 准备要发送的消息，并转换为字节串类型
 msg = "Hello World".encode('utf-8')
