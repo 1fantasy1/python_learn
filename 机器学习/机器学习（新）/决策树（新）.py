@@ -1,11 +1,7 @@
-import math
-import pprint
 import graphviz
 import numpy as np
 import pandas as pd
 from math import log
-from collections import Counter
-import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
 from sklearn.tree import export_graphviz
 from sklearn.tree import DecisionTreeClassifier
@@ -226,4 +222,4 @@ tree_pic = export_graphviz(clf, out_file="mytree.dot", feature_names=['sepal len
 with open('mytree.dot') as f:
     dot_graph = f.read()
 
-graphviz.Source(dot_graph).render("mytree", format="pdf")  # 确保在这里添加文件名
+graphviz.Source(dot_graph).render("mytree", format="pdf")
