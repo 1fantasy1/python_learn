@@ -789,54 +789,154 @@
 # xlim=(0, 60), ylim=(0, 12),
 # color="m", height=7)
 
-import random
+# import random
+#
+# # 原始数据集
+# original_datasets = [
+#     ['青年', '否', '否', '一般', '否'],
+#     ['青年', '否', '否', '好', '否'],
+#     ['青年', '是', '否', '好', '是'],
+#     ['青年', '是', '是', '一般', '是'],
+#     ['青年', '否', '否', '一般', '否'],
+#     ['中年', '否', '否', '一般', '否'],
+#     ['中年', '否', '否', '好', '否'],
+#     ['中年', '是', '是', '好', '是'],
+#     ['中年', '否', '是', '非常好', '是'],
+#     ['中年', '否', '是', '非常好', '是'],
+#     ['老年', '否', '是', '非常好', '是'],
+#     ['老年', '否', '是', '好', '是'],
+#     ['老年', '是', '否', '好', '是'],
+#     ['老年', '是', '否', '非常好', '是'],
+#     ['老年', '否', '否', '一般', '否'],
+# ]
+#
+# # 扩展数据集
+# extended_datasets = original_datasets.copy()
+#
+# # 定义特征的可能取值
+# ages = ['青年', '中年', '老年']
+# jobs = ['是', '否']
+# houses = ['是', '否']
+# credits = ['一般', '好', '非常好']
+#
+# # 生成额外的200个样本
+# for _ in range(200):
+#     age = random.choice(ages)
+#     job = random.choice(jobs)
+#     house = random.choice(houses)
+#     credit = random.choice(credits)
+#     decision = '否'
+#
+#     # 根据现有样本的趋势决定决策结果
+#     if age == '青年' and job == '是':
+#         decision = '是'
+#     elif age == '中年' and (house == '是' or credit == '非常好'):
+#         decision = '是'
+#     elif age == '老年' and (house == '是' or job == '是'):
+#         decision = '是'
+#
+#     extended_datasets.append([age, job, house, credit, decision])
+#
+# # 输出扩展后的数据集
+# for data in extended_datasets:
+#     print(data)
 
-# 原始数据集
-original_datasets = [
-    ['青年', '否', '否', '一般', '否'],
-    ['青年', '否', '否', '好', '否'],
-    ['青年', '是', '否', '好', '是'],
-    ['青年', '是', '是', '一般', '是'],
-    ['青年', '否', '否', '一般', '否'],
-    ['中年', '否', '否', '一般', '否'],
-    ['中年', '否', '否', '好', '否'],
-    ['中年', '是', '是', '好', '是'],
-    ['中年', '否', '是', '非常好', '是'],
-    ['中年', '否', '是', '非常好', '是'],
-    ['老年', '否', '是', '非常好', '是'],
-    ['老年', '否', '是', '好', '是'],
-    ['老年', '是', '否', '好', '是'],
-    ['老年', '是', '否', '非常好', '是'],
-    ['老年', '否', '否', '一般', '否'],
-]
+# import math
+# print("debug_begin");
+# def func_1d_test1(x):
+#     return x**2+1
+# def grad_1d_test1(x):
+#     return x*2
+#
+# def func_1d_test2(x):
+#     return x**2 - 4*x +14
+# def grad_1d_test2(x):
+#     return x*2-4
+# print("debug_end");
+#
+#
+# def gradient_descent_1d(grad, cur_x=0.1, learning_rate=0.01, precision=0.0001, max_iters=10000):
+#         for _ in range(max_iters):
+#             gradient = grad(cur_x)
+#             if abs(gradient) < precision:
+#                 break
+#             cur_x -= learning_rate * gradient
+#         return cur_x
+#
+#
+# print("debug_begin");
+# def test():
+#     print("%.7f" %gradient_descent_1d(grad_1d_test1, cur_x=10, learning_rate=0.2, precision=0.0001, max_iters=10000))
+#     print("%.7f" %gradient_descent_1d(grad_1d_test2, cur_x=10, learning_rate=0.2, precision=0.0001, max_iters=10000))
+# print("debug_end");
+#
+# test()
 
-# 扩展数据集
-extended_datasets = original_datasets.copy()
-
-# 定义特征的可能取值
-ages = ['青年', '中年', '老年']
-jobs = ['是', '否']
-houses = ['是', '否']
-credits = ['一般', '好', '非常好']
-
-# 生成额外的200个样本
-for _ in range(200):
-    age = random.choice(ages)
-    job = random.choice(jobs)
-    house = random.choice(houses)
-    credit = random.choice(credits)
-    decision = '否'
-
-    # 根据现有样本的趋势决定决策结果
-    if age == '青年' and job == '是':
-        decision = '是'
-    elif age == '中年' and (house == '是' or credit == '非常好'):
-        decision = '是'
-    elif age == '老年' and (house == '是' or job == '是'):
-        decision = '是'
-
-    extended_datasets.append([age, job, house, credit, decision])
-
-# 输出扩展后的数据集
-for data in extended_datasets:
-    print(data)
+# def get_acc(y, y_hat):
+#     acc = sum(1 for yi, yi_hat in zip(y, y_hat) if yi == yi_hat) / len(y)
+#     return acc  # 不进行舍入
+#
+# def get_error(y, y_hat):
+#     return sum(yi != yi_hat for yi, yi_hat in zip(y, y_hat)) / len(y)
+#
+# def get_precision(y, y_hat):
+#     TP = sum(1 for yi, yi_hat in zip(y, y_hat) if yi == 1 and yi_hat == 1)
+#     FP = sum(1 for yi, yi_hat in zip(y, y_hat) if yi == 0 and yi_hat == 1)
+#     if TP + FP == 0:
+#         return 0.0
+#     return TP / (TP + FP)  # 不进行舍入
+#
+# def get_recall(y, y_hat):
+#     TP = sum(1 for yi, yi_hat in zip(y, y_hat) if yi == 1 and yi_hat == 1)
+#     FN = sum(1 for yi, yi_hat in zip(y, y_hat) if yi == 1 and yi_hat == 0)
+#     if TP + FN == 0:
+#         return 0.0
+#     return TP / (TP + FN)  # 不进行舍入
+#
+# def get_f1(y, y_hat):
+#     precision = get_precision(y, y_hat)
+#     recall = get_recall(y, y_hat)
+#     if precision + recall == 0:
+#         return 0.0
+#     f1 = 2 * precision * recall / (precision + recall)
+#     return f1  # 不进行舍入
+#
+# def get_roc(y, y_hat):
+#     thresholds = sorted(set(y_hat), reverse=True)
+#     roc_points = []
+#     for thresh in thresholds:
+#         y_pred = [1 if yhat >= thresh else 0 for yhat in y_hat]
+#         TP = sum(1 for yi, ypi in zip(y, y_pred) if yi == 1 and ypi == 1)
+#         FP = sum(1 for yi, ypi in zip(y, y_pred) if yi == 0 and ypi == 1)
+#         TN = sum(1 for yi, ypi in zip(y, y_pred) if yi == 0 and ypi == 0)
+#         FN = sum(1 for yi, ypi in zip(y, y_pred) if yi == 1 and ypi == 0)
+#         TPR = TP / (TP + FN) if (TP + FN) != 0 else 0.0
+#         FPR = FP / (FP + TN) if (FP + TN) != 0 else 0.0
+#         roc_points.append((FPR, TPR))
+#     roc_points.append((0.0, 0.0))
+#     roc_points.append((1.0, 1.0))
+#     roc_points = sorted(roc_points)
+#     return roc_points
+#
+# def get_auc(y, y_hat):
+#     roc_points = get_roc(y, y_hat)
+#     roc_points = sorted(roc_points)
+#     auc = 0.0
+#     for i in range(1, len(roc_points)):
+#         x1, y1 = roc_points[i - 1]
+#         x2, y2 = roc_points[i]
+#         auc += (x2 - x1) * (y1 + y2) / 2  # 梯形面积
+#     return auc  # 不进行舍入
+#
+# def test(y, y_hat):
+#     print("%.3f" % get_acc(y, y_hat))
+#     print("%.3f" % get_precision(y, y_hat))
+#     print("%.3f" % get_recall(y, y_hat))
+#     print("%.3f" % get_f1(y, y_hat))
+#     print("%.3f" % get_auc(y, y_hat))
+#
+# print("debug_begin")
+# y = [int(yt) for yt in input().strip().split()]
+# y_hat = [int(yht) for yht in input().strip().split()]
+# test(y, y_hat)
+# print("debug_end")
