@@ -424,5 +424,5 @@ plt.ylabel('Total Uploads', fontsize=12, weight='bold')
 plt.colorbar(label='Total Video Views (Billions)')
 
 # 显示图表
-# plt.show()
+plt.show()
 
