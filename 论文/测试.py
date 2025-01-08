@@ -3,7 +3,6 @@ import warnings
 warnings.simplefilter('ignore')
 
 # 导入必要的库
-import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -11,12 +10,6 @@ import matplotlib.pyplot as plt
 # 导入机器学习相关库
 from sklearn.preprocessing import LabelEncoder, StandardScaler  # 数据编码与标准化
 from sklearn.model_selection import train_test_split, cross_val_score, KFold  # 数据集划分与交叉验证
-from sklearn import metrics  # 性能评估工具
-from sklearn.linear_model import LinearRegression, Ridge, Lasso  # 回归模型
-from catboost import CatBoostRegressor  # CatBoost回归模型
-from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor  # 集成方法
-from xgboost import XGBRegressor  # XGBoost回归模型
-from sklearn.tree import DecisionTreeRegressor  # 决策树回归模型
 
 # 加载数据集
 data = pd.read_csv('Airbnb_Data.csv')  # 从CSV文件中读取数据
@@ -32,7 +25,7 @@ df = data.copy()  # 创建数据副本，避免直接修改原始数据
 # print(df.columns)
 
 # 数据描述性统计（如均值、标准差等），检查数值特征的分布
-# print(df.describe())
+print(df.describe())
 
 # 数据的基本信息（如数据类型和是否有缺失值）
 # print(df.info())
@@ -59,6 +52,8 @@ new_df = df.drop(
 
 # 输出简化后的数据集的描述性统计信息
 # print(new_df.describe())
+print(new_df.columns)
+
 
 # 输出简化后的数据集的形状（行数和列数）
 # print(new_df.shape)
@@ -78,7 +73,7 @@ new_df["beds"] = df["beds"].fillna((df["bathrooms"].median()))
 
 # 检查数据集中剩余的缺失值情况
 # print(new_df.isnull().sum())
-
+'''
 # 定义绘制分类图的函数
 def plot_catplot(h, v, he, a):
     """
@@ -269,97 +264,4 @@ x_train, x_test, y_train, y_test = train_test_split(
 sc = StandardScaler()  # 初始化标准化工具
 x_train = sc.fit_transform(x_train)  # 对训练集进行标准化（均值为0，方差为1）
 x_test = sc.transform(x_test)  # 使用同样的参数对测试集进行标准化
-
-# # 初始化 XGBoost 回归器
-# xgb = XGBRegressor(objective='reg:squarederror')
-# # - `objective='reg:squarederror'`：指定回归任务的目标函数为均方误差
-#
-# # 使用训练集数据训练模型
-# xgb.fit(x_train, y_train)
-# # - `x_train`：训练特征集
-# # - `y_train`：训练目标变量
-#
-# # 使用测试集数据进行预测
-# y_pred_xgb = xgb.predict(x_test)
-# # - `x_test`：测试特征集
-# # - `y_pred_xgb`：模型对测试集的预测值
-#
-# # 计算模型的性能指标
-# mae_xgb  = metrics.mean_absolute_error(y_test, y_pred_xgb)
-# # 平均绝对误差 (Mean Absolute Error, MAE)：评估预测值与真实值之间的平均绝对差异
-#
-# mse_xgb  = metrics.mean_squared_error(y_test, y_pred_xgb)
-# # 均方误差 (Mean Squared Error, MSE)：评估预测值与真实值之间的平方误差的平均值
-#
-# rmse_xgb = np.sqrt(metrics.mean_squared_error(y_test, y_pred_xgb))
-# # 均方根误差 (Root Mean Squared Error, RMSE)：MSE 的平方根，表示预测误差的尺度
-#
-# r2_xgb   = metrics.r2_score(y_test, y_pred_xgb)
-# # R² 分数 (R-squared)：衡量模型的拟合优度，1 表示完美拟合，0 表示没有预测能力
-#
-# # 打印模型性能指标
-# print('\nMean Absolute Error of XGBoost Regressor     : ', mae_xgb)
-# print('\nMean Squarred Error of XGBoost Regressor     : ', mse_xgb)
-# print('\nRoot Mean Squarred Error of XGBoost Regressor: ', rmse_xgb)
-# print('\nR2 Score of XGBoost Regressor                : ', r2_xgb)
-
-import lightgbm as lgb
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
-import numpy as np
-
-# 转换为 LightGBM 数据集格式
-train_data = lgb.Dataset(x_train, label=y_train)
-valid_data = lgb.Dataset(x_test, label=y_test, reference=train_data)
-
-# 设置模型参数
-params = {
-    'objective': 'regression',  # 回归任务
-    'learning_rate': 0.1,       # 学习率
-    'num_leaves': 31,           # 每棵树的叶子节点数
-    'max_depth': -1,            # 树的最大深度
-    'feature_fraction': 0.8,    # 特征选择比例
-    'bagging_fraction': 0.8,    # 数据采样比例
-    'bagging_freq': 5,          # 数据采样频率
-    'metric': 'rmse',           # 评估指标
-    'random_state': 42,         # 随机种子
-    'early_stopping_rounds': 10 # 连续 10 轮没有提升则停止训练
-}
-
-# 训练模型，启用早停功能
-lgb_model = lgb.train(
-    params=params,
-    train_set=train_data,
-    valid_sets=[train_data, valid_data],
-    valid_names=['train', 'valid'],
-)
-
-# 使用测试集预测目标值
-y_pred_lgb = lgb_model.predict(x_test)
-
-# 计算模型的性能指标
-mae_lgb  = mean_absolute_error(y_test, y_pred_lgb)
-mse_lgb  = mean_squared_error(y_test, y_pred_lgb)
-rmse_lgb = np.sqrt(mse_lgb)
-r2_lgb   = r2_score(y_test, y_pred_lgb)
-
-# 输出模型的性能指标
-print('\nMean Absolute Error of LightGBM Regressor     : ', mae_lgb)
-print('\nMean Squared Error of LightGBM Regressor     : ', mse_lgb)
-print('\nRoot Mean Squared Error of LightGBM Regressor: ', rmse_lgb)
-print('\nR2 Score of LightGBM Regressor               : ', r2_lgb)
-
-# 输出特征重要性
-print("\nFeature Importances:")
-importance = lgb_model.feature_importance(importance_type='gain')
-for col, imp in zip(x.columns, importance):
-    print(f"{col}: {imp}")
-
-# 可视化特征重要性
-import matplotlib.pyplot as plt
-
-plt.figure(figsize=(10, 6))
-plt.barh(x.columns, importance, color='skyblue')
-plt.title('Feature Importance')
-plt.xlabel('Importance')
-plt.ylabel('Features')
-plt.show()
+'''
