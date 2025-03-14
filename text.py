@@ -195,7 +195,7 @@
 # print(num)
 # """
 # !!!
-# 元组只有index(),count(),len(元组)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+# 元组只有index(),count(),len(元组)
 # !!!
 # """
 #
